@@ -5,14 +5,24 @@
 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/cfe5f316/dist/aframe-extras.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded arjs>
-    <!-- create your content here. just a box for now -->
-    <a-asset id="cesium-man" src="untitled.glb"></a-asset>
-    </a-assets>
-    <a-entity id="walker" gltf-model="#cesium-man" position="0 0 0" scale="0.5 0.5 0.5"
+    <a-marker preset='hiro'>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'
+				animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
+				</a-torus-knot>
+			</a-box>
+		</a-marker>
+    <a-marker type='pattern' url='A.patt'>
+         <!-- create your content here. just a box for now -->
+      <a-asset id="cesium-man" src="untitled.glb"></a-asset>
+     </a-assets>
+      <a-entity id="walker" gltf-model="#cesium-man" position="0 0 0" scale="0.5 0.5 0.5"
           animation-mixer>
-    </a-entity>
-    <!-- define a camera which will move according to the marker position -->
-    <a-marker-camera type='pattern' url='A.patt'></a-marker-camera>
+      </a-entity>
+     </a-marker>
+    <a-entity camera></a-entity>
   </a-scene>
 </body>
 
+
+    <!-- define a camera which will move according to the marker position -->
